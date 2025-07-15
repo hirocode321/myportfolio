@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>Hiro Sekioka - From Photographer to Engineer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="元フォトグラファーの関岡宏が、エンジニアへの転身を目指して制作したポートフォリオサイトです。Python/Flaskを活用した開発実績を紹介しています。">
+  <meta name="keywords" content="関岡大晃,ポートフォリオ,エンジニア,Python,Flask,未経験エンジニア">
+  <meta name="author" content="Hiroaki Sekioka">
+  <meta property="og:title" content="Hiro Sekioka Portfolio">
+  <meta property="og:description" content="元フォトグラファーからエンジニアへ。Python/Flaskを中心にした開発ポートフォリオ">
+  <meta property="og:image" content="/ogp.jpg">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://example.com">
+  <meta name="twitter:card" content="summary_large_image">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+  <div class="container">
+    <a class="navbar-brand fw-bold" href="#">Hiro Sekioka</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="#works">Works</a></li>
+        <li class="nav-item"><a class="nav-link" href="#gallery">Photography</a></li>
+        <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+        <li class="nav-item"><a class="nav-link" href="#timeline">Timeline</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+      </ul>
+    </div>
+    <!-- <button class="btn btn-sm btn-outline-light ms-3" onclick="toggleDarkMode()" aria-label="Toggle dark mode">🌓</button> -->
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="container text-center">
+    <h1 class="display-4" data-aos="fade-down">Hiro Sekioka</h1>
+    <p class="lead" data-aos="fade-up" data-aos-delay="200">
+      星と共に歩んだ日々から、コードの世界へ。<br class="d-none d-md-block">創造の軸は変わらない。
+    </p>
+    <a href="#about" class="btn btn-outline-light mt-4" data-aos="zoom-in" data-aos-delay="400">私について知る</a>
+  </div>
+</section>
+
+<section id="about" class="section bg-white" data-aos="fade-up">
+  <div class="container">
+    <h2 class="text-center mb-4">About Me</h2>
+    <div class="mx-auto" style="max-width: 800px;">
+      <p>関西学院大学経済学部を2018年に卒業後、自動車部品メーカーにて生産管理業務に従事。現場改善や工程設計を通じ、論理的思考とプロジェクト管理能力を培いました。</p>
+      <p>2021年からはフリーランスフォトグラファーとして独立。広告撮影・出版・講演を行い、Sony公式セミナー講師も務めました。</p>
+      <p>現在はエンジニアへの転身を目指し、Python/FlaskによるWebアプリ開発に注力。特に天体観測支援ツールの開発に力を入れています。</p>
+      <p class="text-muted">※写真ポートフォリオは別途公開予定です。</p>
+    </div>
+  </div>
+</section>
+
+<section id="works" class="section bg-light">
+  <div class="container">
+    <h2 class="text-center mb-5">Projects</h2>
+    <div class="row">
+      <div class="col-md-4 mb-4">
+        <div class="card h-100">
+          <img src="project1.jpg" class="card-img-top" alt="月齢計算アプリのサムネイル">
+          <div class="card-body">
+            <h5 class="card-title">Lunar Phase Calendar</h5>
+            <p class="card-text">Flask製の月齢計算アプリ。Antaresと月の位置関係をSkyfieldとNumPyで計算、撮影のタイミングを支援します。</p>
+          </div>
+          <div class="card-footer">
+            <a href="https://github.com/hirography321/project1" class="btn btn-outline-primary btn-sm" target="_blank" rel="noopener">View Code</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="gallery" class="section bg-white">
+  <div class="container">
+    <h2 class="text-center mb-5">Photography</h2>
+    <div class="row">
+      <div class="col-md-4 mb-4">
+        <img src="photo1.jpg" class="img-fluid rounded shadow-sm" alt="富士山と天の川の星景写真">
+      </div>
+      <div class="col-md-4 mb-4">
+        <img src="photo2.jpg" class="img-fluid rounded shadow-sm" alt="流星群の夜景写真">
+      </div>
+      <div class="col-md-4 mb-4">
+        <img src="photo3.jpg" class="img-fluid rounded shadow-sm" alt="雷と星空のコラボ写真">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skills" class="section bg-light">
+  <div class="container">
+    <h2 class="text-center mb-5">Skills</h2>
+    <div class="row">
+      <div class="col-md-6">
+        <label>HTML/CSS</label>
+        <div class="progress mb-3"><div class="progress-bar bg-danger" style="width: 90%">90%</div></div>
+        <label>JavaScript</label>
+        <div class="progress mb-3"><div class="progress-bar bg-info" style="width: 70%">70%</div></div>
+        <label>Python</label>
+        <div class="progress mb-3"><div class="progress-bar bg-primary" style="width: 85%">85%</div></div>
+        <label>Flask</label>
+        <div class="progress mb-3"><div class="progress-bar bg-success" style="width: 80%">80%</div></div>
+      </div>
+      <div class="col-md-6">
+        <label>Git/GitHub</label>
+        <div class="progress mb-3"><div class="progress-bar bg-secondary" style="width: 80%">80%</div></div>
+        <label>Bootstrap</label>
+        <div class="progress mb-3"><div class="progress-bar bg-warning" style="width: 85%">85%</div></div>
+        <label>Skyfield/NumPy</label>
+        <div class="progress mb-3"><div class="progress-bar bg-dark" style="width: 70%">70%</div></div>
+        <label>Lightroom/Photoshop</label>
+        <div class="progress mb-3"><div class="progress-bar bg-dark" style="width: 95%">95%</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="timeline" class="section bg-white">
+  <div class="container">
+    <h2 class="text-center mb-5">Timeline</h2>
+    <div class="mx-auto" style="max-width: 600px;">
+      <div class="timeline-item"><strong>2018:</strong> Astrophotographyを開始</div>
+      <div class="timeline-item"><strong>2020:</strong> 写真集を出版・国際賞を受賞</div>
+      <div class="timeline-item"><strong>2023:</strong> PythonでWeb開発を学習</div>
+      <div class="timeline-item"><strong>2024:</strong> Flaskで天体アプリを制作・公開</div>
+      <div class="timeline-item"><strong>2025:</strong> エンジニアとして転職活動中</div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="section bg-light">
+  <div class="container">
+    <h2 class="text-center mb-5">Contact</h2>
+    <form method="POST" action="https://formspree.io/f/xxxxxxx" class="mx-auto" style="max-width: 600px;">
+      <div class="mb-3">
+        <label for="name" class="form-label">お名前</label>
+        <input type="text" class="form-control" id="name" name="name" required>
+      </div>
+      <div class="mb-3">
+        <label for="email" class="form-label">メールアドレス</label>
+        <input type="email" class="form-control" id="email" name="_replyto" required>
+      </div>
+      <div class="mb-3">
+        <label for="message" class="form-label">お問い合わせ内容</label>
+        <textarea class="form-control" id="message" name="message" rows="5" required></textarea>
+      </div>
+      <div class="text-center">
+        <button type="submit" class="btn btn-primary">送信</button>
+      </div>
+    </form>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <small>&copy; 2025 Hiroaki Sekioka. All Rights Reserved.</small>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+<script>
+  AOS.init();
+
+  function toggleDarkMode() {
+    document.body.classList.toggle('dark-mode');
+    localStorage.setItem('darkMode', document.body.classList.contains('dark-mode'));
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    if (localStorage.getItem('darkMode') === 'true') {
+      document.body.classList.add('dark-mode');
+    }
+  });
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('show');
+      }
+    });
+  });
+  document.querySelectorAll('.timeline-item').forEach(item => {
+    observer.observe(item);
+  });
+</script>
+</body>
+</html>
