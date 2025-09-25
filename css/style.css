@@ -181,6 +181,13 @@ body {
 #skills ul li {
   padding-bottom: 0.75rem;
 }
+.portfolio-link {
+  font-weight: 900;        /* さらに太く */
+  color: #0d6efd;          /* Bootstrap の link-primary 色 */
+  text-decoration: underline; /* 下線で強調 */
+  font-size: 1.25rem;      /* 少し文字を大きく */
+}
+
 
 /* Timeline */
 .timeline {
