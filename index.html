@@ -14,6 +14,7 @@
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://example.com" />
   <meta name="twitter:card" content="summary_large_image" />
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -65,6 +66,7 @@
 
   <!-- Hero Section -->
   <section class="hero text-white d-flex align-items-center" role="banner">
+    <canvas id="starfield"></canvas>
     <div class="container text-center">
       <h1 class="display-3 fw-bold mb-3" data-aos="fade-down" data-aos-duration="1000">
         From Lens to Logic
@@ -192,275 +194,391 @@
   </section>
 
   <!-- Gallery Section -->
-  <section id="gallery" class="section" aria-labelledby="gallery-title">
+  <section id="gallery" class="section bg-white" aria-labelledby="gallery-title">
     <div class="container">
-      <h2 id="gallery-title" class="section-title">Photography</h2>
 
-      <!-- Gallery Section -->
-      <section id="gallery" class="section bg-white" aria-labelledby="gallery-title">
-        <div class="container">
+      <h2 id="gallery-title" class="text-center mb-4 fw-bold display-5">Photography</h2>
 
-          <h2 id="gallery-title" class="text-center mb-4 fw-bold display-5">Photography</h2>
-
-          <div class="row g-4">
-            <div class="col-12" data-aos="fade-up" tabindex="0">
-              <img src="images/photo0.jpg" class="img-fluid rounded shadow-sm" alt="富士山と天の川の星景写真" loading="lazy" />
-            </div>
-            <div class="col-md-4" data-aos="fade-up" data-aos-delay="100" tabindex="0">
-              <img src="images/photo1.jpg" class="img-fluid rounded shadow-sm" alt="富士山と天の川の星景写真" loading="lazy" />
-            </div>
-            <div class="col-md-4" data-aos="fade-up" data-aos-delay="150" tabindex="0">
-              <img src="images/photo2.jpg" class="img-fluid rounded shadow-sm" alt="流星群の夜景写真" loading="lazy" />
-            </div>
-            <div class="col-md-4" data-aos="fade-up" data-aos-delay="200" tabindex="0">
-              <img src="images/photo3.jpg" class="img-fluid rounded shadow-sm" alt="雷と星空のコラボ写真" loading="lazy" />
-            </div>
-            <div class="col-12" data-aos="fade-up" data-aos-delay="250" tabindex="0">
-              <img src="images/photo4.jpg" class="img-fluid rounded shadow-sm" alt="富士山と天の川の星景写真" loading="lazy" />
-            </div>
-            <div class="col-lg-4 col-md-4" data-aos="fade-up" data-aos-delay="300" tabindex="0">
-              <img src="images/photo8.jpg" class="img-fluid rounded shadow-sm" alt="富士山と天の川の星景写真" loading="lazy" />
-            </div>
-            <div class="col-lg-4 col-md-4" data-aos="fade-up" data-aos-delay="350" tabindex="0">
-              <img src="images/photo7.jpg" class="img-fluid rounded shadow-sm" alt="流星群の夜景写真" loading="lazy" />
-            </div>
-            <div class="col-lg-4 col-md-4" data-aos="fade-up" data-aos-delay="400" tabindex="0">
-              <img src="images/photo6.jpg" class="img-fluid rounded shadow-sm" alt="雷と星空のコラボ写真" loading="lazy" />
-            </div>
-            <div class="col-12" data-aos="fade-up" data-aos-delay="450" tabindex="0">
-              <img src="images/photo5.jpg" class="img-fluid rounded shadow-sm" alt="富士山と天の川の星景写真" loading="lazy" />
-            </div>
-          </div>
-
-          <div class="text-center mt-5">
-            <a href="https://hiroakisekioka.com/" class="btn btn-outline-dark rounded-pill px-4 py-2" target="_blank">
-              <i class="bi bi-camera-fill me-2"></i>写真家のポートフォリオを見る
-            </a>
-          </div>
-
+      <div class="gallery-grid">
+        <div class="gallery-item" data-aos="fade-up" onclick="openLightbox(this)">
+          <img src="images/photo0.jpg" alt="富士山と天の川の星景写真" loading="lazy" />
         </div>
-      </section>
+        <div class="gallery-item" data-aos="fade-up" data-aos-delay="50" onclick="openLightbox(this)">
+          <img src="images/photo1.jpg" alt="富士山と天の川の星景写真" loading="lazy" />
+        </div>
+        <div class="gallery-item" data-aos="fade-up" data-aos-delay="100" onclick="openLightbox(this)">
+          <img src="images/photo2.jpg" alt="流星群の夜景写真" loading="lazy" />
+        </div>
+        <div class="gallery-item" data-aos="fade-up" data-aos-delay="150" onclick="openLightbox(this)">
+          <img src="images/photo3.jpg" alt="雷と星空のコラボ写真" loading="lazy" />
+        </div>
+        <div class="gallery-item" data-aos="fade-up" data-aos-delay="200" onclick="openLightbox(this)">
+          <img src="images/photo4.jpg" alt="富士山と天の川の星景写真" loading="lazy" />
+        </div>
+        <div class="gallery-item" data-aos="fade-up" data-aos-delay="250" onclick="openLightbox(this)">
+          <img src="images/photo8.jpg" alt="富士山と天の川の星景写真" loading="lazy" />
+        </div>
+        <div class="gallery-item" data-aos="fade-up" data-aos-delay="300" onclick="openLightbox(this)">
+          <img src="images/photo7.jpg" alt="流星群の夜景写真" loading="lazy" />
+        </div>
+        <div class="gallery-item" data-aos="fade-up" data-aos-delay="350" onclick="openLightbox(this)">
+          <img src="images/photo6.jpg" alt="雷と星空のコラボ写真" loading="lazy" />
+        </div>
+        <div class="gallery-item" data-aos="fade-up" data-aos-delay="400" onclick="openLightbox(this)">
+          <img src="images/photo5.jpg" alt="富士山と天の川の星景写真" loading="lazy" />
+        </div>
+      </div>
 
-      <!-- Skills Section -->
-      <section id="skills" class="section" aria-labelledby="skills-title">
-        <div class="container">
-          <h2 id="skills-title" class="section-title">Skills</h2>
-          <div class="row g-4">
+      <div class="text-center mt-5">
+        <a href="https://hiroakisekioka.com/" class="btn btn-outline-dark rounded-pill px-4 py-2" target="_blank">
+          <i class="bi bi-camera-fill me-2"></i>写真家のポートフォリオを見る
+        </a>
+      </div>
 
-            <div class="col-md-4" data-aos="fade-up">
-              <div class="skill-box">
-                <div class="text-center mb-3">
-                  <i class="bi bi-code-slash fs-1 text-primary"></i>
-                </div>
-                <h3>Web Development</h3>
-                <ul class="list-unstyled skill-list">
-                  <li><strong>HTML / CSS</strong><br><small class="text-muted">静的サイトの構築、レスポンシブ対応</small></li>
-                  <li><strong>JavaScript</strong><br><small class="text-muted">DOM操作、基本的な動的処理</small></li>
-                  <li><strong>Bootstrap 5</strong><br><small class="text-muted">グリッドシステム、コンポーネント活用</small></li>
-                  <li><strong>Git / GitHub</strong><br><small class="text-muted">基本コマンド、Pagesデプロイ</small></li>
-                </ul>
-              </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills" class="section" aria-labelledby="skills-title">
+    <div class="container">
+      <h2 id="skills-title" class="section-title">Skills</h2>
+      <div class="row g-4">
+
+        <div class="col-md-4" data-aos="fade-up">
+          <div class="skill-box">
+            <div class="text-center mb-3">
+              <i class="bi bi-code-slash fs-1 text-primary"></i>
             </div>
-
-            <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
-              <div class="skill-box">
-                <div class="text-center mb-3">
-                  <i class="bi bi-terminal fs-1 text-primary"></i>
-                </div>
-                <h3>Programming</h3>
-                <ul class="list-unstyled skill-list">
-                  <li><strong>Python</strong><br><small class="text-muted">基礎文法、スクリプティング</small></li>
-                  <li><strong>Flask / Django</strong><br><small class="text-muted">Webアプリ構築、MVC/MVTモデル</small></li>
-                  <li><strong>Skyfield / NumPy</strong><br><small class="text-muted">科学計算ライブラリの活用</small></li>
-                </ul>
-              </div>
-            </div>
-
-            <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
-              <div class="skill-box">
-                <div class="text-center mb-3">
-                  <i class="bi bi-palette fs-1 text-primary"></i>
-                </div>
-                <h3>Creative & Soft Skills</h3>
-                <ul class="list-unstyled skill-list">
-                  <li><strong>Adobe Lightroom / Photoshop</strong><br><small
-                      class="text-muted">10年以上のプロフェッショナル経験</small>
-                  </li>
-                  <li><strong>UI/UX Design</strong><br><small class="text-muted">ユーザー視点に立った美的設計</small></li>
-                  <li><strong>Project Management</strong><br><small class="text-muted">生産管理で培った推進力</small></li>
-                </ul>
-              </div>
-            </div>
-
+            <h3>Web Development</h3>
+            <ul class="list-unstyled skill-list">
+              <li><strong>HTML / CSS</strong><br><small class="text-muted">静的サイトの構築、レスポンシブ対応</small></li>
+              <li><strong>JavaScript</strong><br><small class="text-muted">DOM操作、基本的な動的処理</small></li>
+              <li><strong>Bootstrap 5</strong><br><small class="text-muted">グリッドシステム、コンポーネント活用</small></li>
+              <li><strong>Git / GitHub</strong><br><small class="text-muted">基本コマンド、Pagesデプロイ</small></li>
+            </ul>
           </div>
         </div>
-      </section>
 
-      <!-- Timeline Section -->
-      <section id="timeline" class="section" data-aos="fade-up">
-        <div class="container">
-          <h2 class="section-title">Timeline</h2>
-
-          <ul class="timeline">
-
-            <li class="timeline-item">
-              <div class="timeline-marker"></div>
-              <div class="timeline-content">
-                <span class="timeline-year">2018年3月</span>
-                <h5 class="fw-bold">関西学院大学 経済学部 卒業</h5>
-                <p class="text-muted">
-                  学生時代には留学やバックパッカーを経験し、英語力と異文化理解を深めました。この旅の中で写真と出会い、表現することの喜びを知りました。海外での活躍を視野に入れ、グローバルに展開する自動車部品メーカーへの就職いたしました。
-                </p>
-              </div>
-            </li>
-
-            <li class="timeline-item">
-              <div class="timeline-marker"></div>
-              <div class="timeline-content">
-                <span class="timeline-year">2018年4月</span>
-                <h5 class="fw-bold">株式会社小糸製作所 入社</h5>
-                <p class="text-muted">
-                  生産管理職として従事いたしました。現場改善、工程設計、システム改修などを通じて、論理的思考力とプロジェクト推進力を培いました。業務と並行して写真活動にも情熱を注ぎ、やがて独立を志すようになりました。
-                </p>
-              </div>
-            </li>
-
-            <li class="timeline-item">
-              <div class="timeline-marker"></div>
-              <div class="timeline-content">
-                <span class="timeline-year">2021年1月</span>
-                <h5 class="fw-bold">フリーランスフォトグラファーとして独立</h5>
-                <p class="text-muted">
-                  退職し、フリーランスとして独立いたしました。広告撮影、出版、講演、セミナー登壇など、多方面で活動の幅を広げました。<br>
-                  Sony公式セミナー講師やCP+への登壇、星空関連書籍の出版など、多くの実績を積み重ねることができました。
-                </p>
-              </div>
-            </li>
-
-            <li class="timeline-item">
-              <div class="timeline-marker"></div>
-              <div class="timeline-content">
-                <span class="timeline-year">2024年4月</span>
-                <h5 class="fw-bold">創造社デザイン専門学校 入学</h5>
-                <p class="text-muted">
-                  地方自治体での観光マーケティング業務を経て、ITスキルの必要性を痛感いたしました。また、将来を見据え、写真家以外のキャリアも模索し始めました。<br>
-                  同校にてWebマーケティングを学ぶ中でプログラミングに出会い、これまでの経験を活かした新しいサービス創出に取り組んでおります。
-                </p>
-              </div>
-            </li>
-
-            <li class="timeline-item">
-              <div class="timeline-marker"></div>
-              <div class="timeline-content">
-                <span class="timeline-year">2025年12月</span>
-                <h5 class="fw-bold">天体観測支援アプリを開発</h5>
-                <p class="text-muted">
-                  進級制作において、自身の活動中に感じていた不便さを解消するため、Pythonを用いて月齢や潮位を確認するWebアプリを制作いたしました。<br>
-                  この経験を通じてプログラミングの楽しさに目覚め、エンジニアを目指すことを決意いたしました。現在はSkyfieldやNumPyを活用した天体位置計算や、UI設計の研鑽に励んでおります。
-                </p>
-              </div>
-            </li>
-
-            <li class="timeline-item">
-              <div class="timeline-marker"></div>
-              <div class="timeline-content">
-                <span class="timeline-year">2025年7月 - 9月</span>
-                <h5 class="fw-bold">IT企業にてインターンシップに参加</h5>
-                <p class="text-muted">
-                  インフラ領域の知識も習得したいと考え、インフラエンジニアとして2ヶ月間のインターンシップに挑戦いたしました。<br>
-                  学校では学べないサーバーの構築から保守運用までを実務の中で経験させていただきました。
-                </p>
-              </div>
-            </li>
-
-            <li class="timeline-item">
-              <div class="timeline-marker"></div>
-              <div class="timeline-content">
-                <span class="timeline-year">現在</span>
-                <h5 class="fw-bold">エンジニアとして転職活動中</h5>
-                <p class="text-muted">
-                  論理的思考、デザインセンス、そして写真表現。これまでの経験を融合させ、社会に価値を提供できるエンジニアを目指して活動しております。
-                </p>
-              </div>
-            </li>
-
-          </ul>
-        </div>
-      </section>
-
-
-      <!-- Contact Section -->
-      <section id="contact" class="section">
-        <div class="container">
-          <h2 class="section-title">Contact</h2>
-          <div class="form-wrapper">
-            <p class="text-center mb-4 text-muted">制作のご依頼やご相談など、お気軽にお問い合わせください。</p>
-            <form method="POST" action="https://formspree.io/f/movljple"
-              onsubmit="setTimeout(() => { window.location.href = 'thanks.html'; }, 100);">
-              <div class="mb-3 text-start">
-                <label for="name" class="form-label">お名前</label>
-                <input type="text" class="form-control" id="name" name="name" required placeholder="例：山田 太郎">
-              </div>
-              <div class="mb-3 text-start">
-                <label for="email" class="form-label">メールアドレス</label>
-                <input type="email" class="form-control" id="email" name="_replyto" required
-                  placeholder="example@email.com">
-              </div>
-              <div class="mb-3 text-start">
-                <label for="message" class="form-label">お問い合わせ内容</label>
-                <textarea class="form-control" id="message" name="message" rows="5" required
-                  placeholder="ここにメッセージをご記入ください"></textarea>
-              </div>
-              <div class="text-center mt-4">
-                <button type="submit" class="btn btn-primary rounded-pill px-5 py-2">送信する</button>
-              </div>
-            </form>
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+          <div class="skill-box">
+            <div class="text-center mb-3">
+              <i class="bi bi-terminal fs-1 text-primary"></i>
+            </div>
+            <h3>Programming</h3>
+            <ul class="list-unstyled skill-list">
+              <li><strong>Python</strong><br><small class="text-muted">基礎文法、スクリプティング</small></li>
+              <li><strong>Flask / Django</strong><br><small class="text-muted">Webアプリ構築、MVC/MVTモデル</small></li>
+              <li><strong>Skyfield / NumPy</strong><br><small class="text-muted">科学計算ライブラリの活用</small></li>
+            </ul>
           </div>
         </div>
-      </section>
 
-      <!-- footer Section -->
-      <footer class="footer">
-        <div class="container">
-          <div class="mb-3">
-            <a href="https://x.com/hirography_321" class="text-white mx-2 fs-5" target="_blank"><i
-                class="bi bi-twitter-x"></i></a>
-            <a href="https://www.instagram.com/hirography_321" class="text-white mx-2 fs-5" target="_blank"><i
-                class="bi bi-instagram"></i></a>
-            <a href="https://github.com/hirocode321" class="text-white mx-2 fs-5" target="_blank"><i
-                class="bi bi-github"></i></a>
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+          <div class="skill-box">
+            <div class="text-center mb-3">
+              <i class="bi bi-palette fs-1 text-primary"></i>
+            </div>
+            <h3>Creative & Soft Skills</h3>
+            <ul class="list-unstyled skill-list">
+              <li><strong>Adobe Lightroom / Photoshop</strong><br><small class="text-muted">10年以上のプロフェッショナル経験</small>
+              </li>
+              <li><strong>UI/UX Design</strong><br><small class="text-muted">ユーザー視点に立った美的設計</small></li>
+              <li><strong>Project Management</strong><br><small class="text-muted">生産管理で培った推進力</small></li>
+            </ul>
           </div>
-          <small>&copy; 2025 HiroCode321. All Rights Reserved.</small>
         </div>
-      </footer>
 
-      <!-- script Section -->
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-      <script>
-        AOS.init({
-          once: true,
-          offset: 100,
-          duration: 800,
-          easing: 'ease-out-cubic',
-        });
+      </div>
+    </div>
+  </section>
 
-        // Dark Mode Logic
-        function toggleDarkMode() {
-          document.body.classList.toggle('dark-mode');
-          const isDark = document.body.classList.contains('dark-mode');
-          localStorage.setItem('darkMode', isDark);
+  <!-- Timeline Section -->
+  <section id="timeline" class="section" data-aos="fade-up">
+    <div class="container">
+      <h2 class="section-title">Timeline</h2>
 
-          // Update icon if needed (optional)
+      <ul class="timeline">
+
+        <li class="timeline-item">
+          <div class="timeline-marker"></div>
+          <div class="timeline-content">
+            <span class="timeline-year">2018年3月</span>
+            <h5 class="fw-bold">関西学院大学 経済学部 卒業</h5>
+            <p class="text-muted">
+              学生時代には留学やバックパッカーを経験し、英語力と異文化理解を深めました。この旅の中で写真と出会い、表現することの喜びを知りました。海外での活躍を視野に入れ、グローバルに展開する自動車部品メーカーへの就職いたしました。
+            </p>
+          </div>
+        </li>
+
+        <li class="timeline-item">
+          <div class="timeline-marker"></div>
+          <div class="timeline-content">
+            <span class="timeline-year">2018年4月</span>
+            <h5 class="fw-bold">株式会社小糸製作所 入社</h5>
+            <p class="text-muted">
+              生産管理職として従事いたしました。現場改善、工程設計、システム改修などを通じて、論理的思考力とプロジェクト推進力を培いました。業務と並行して写真活動にも情熱を注ぎ、やがて独立を志すようになりました。
+            </p>
+          </div>
+        </li>
+
+        <li class="timeline-item">
+          <div class="timeline-marker"></div>
+          <div class="timeline-content">
+            <span class="timeline-year">2021年1月</span>
+            <h5 class="fw-bold">フリーランスフォトグラファーとして独立</h5>
+            <p class="text-muted">
+              退職し、フリーランスとして独立いたしました。広告撮影、出版、講演、セミナー登壇など、多方面で活動の幅を広げました。<br>
+              Sony公式セミナー講師やCP+への登壇、星空関連書籍の出版など、多くの実績を積み重ねることができました。
+            </p>
+          </div>
+        </li>
+
+        <li class="timeline-item">
+          <div class="timeline-marker"></div>
+          <div class="timeline-content">
+            <span class="timeline-year">2024年4月</span>
+            <h5 class="fw-bold">創造社デザイン専門学校 入学</h5>
+            <p class="text-muted">
+              地方自治体での観光マーケティング業務を経て、ITスキルの必要性を痛感いたしました。また、将来を見据え、写真家以外のキャリアも模索し始めました。<br>
+              同校にてWebマーケティングを学ぶ中でプログラミングに出会い、これまでの経験を活かした新しいサービス創出に取り組んでおります。
+            </p>
+          </div>
+        </li>
+
+        <li class="timeline-item">
+          <div class="timeline-marker"></div>
+          <div class="timeline-content">
+            <span class="timeline-year">2025年12月</span>
+            <h5 class="fw-bold">天体観測支援アプリを開発</h5>
+            <p class="text-muted">
+              進級制作において、自身の活動中に感じていた不便さを解消するため、Pythonを用いて月齢や潮位を確認するWebアプリを制作いたしました。<br>
+              この経験を通じてプログラミングの楽しさに目覚め、エンジニアを目指すことを決意いたしました。現在はSkyfieldやNumPyを活用した天体位置計算や、UI設計の研鑽に励んでおります。
+            </p>
+          </div>
+        </li>
+
+        <li class="timeline-item">
+          <div class="timeline-marker"></div>
+          <div class="timeline-content">
+            <span class="timeline-year">2025年7月 - 9月</span>
+            <h5 class="fw-bold">IT企業にてインターンシップに参加</h5>
+            <p class="text-muted">
+              インフラ領域の知識も習得したいと考え、インフラエンジニアとして2ヶ月間のインターンシップに挑戦いたしました。<br>
+              学校では学べないサーバーの構築から保守運用までを実務の中で経験させていただきました。
+            </p>
+          </div>
+        </li>
+
+        <li class="timeline-item">
+          <div class="timeline-marker"></div>
+          <div class="timeline-content">
+            <span class="timeline-year">現在</span>
+            <h5 class="fw-bold">エンジニアとして転職活動中</h5>
+            <p class="text-muted">
+              論理的思考、デザインセンス、そして写真表現。これまでの経験を融合させ、社会に価値を提供できるエンジニアを目指して活動しております。
+            </p>
+          </div>
+        </li>
+
+      </ul>
+    </div>
+  </section>
+
+
+  <!-- Contact Section -->
+  <section id="contact" class="section">
+    <div class="container">
+      <h2 class="section-title">Contact</h2>
+      <div class="form-wrapper">
+        <p class="text-center mb-4 text-muted">制作のご依頼やご相談など、お気軽にお問い合わせください。</p>
+        <form method="POST" action="https://formspree.io/f/movljple"
+          onsubmit="setTimeout(() => { window.location.href = 'thanks.html'; }, 100);">
+          <div class="mb-3 text-start">
+            <label for="name" class="form-label">お名前</label>
+            <input type="text" class="form-control" id="name" name="name" required placeholder="例：山田 太郎">
+          </div>
+          <div class="mb-3 text-start">
+            <label for="email" class="form-label">メールアドレス</label>
+            <input type="email" class="form-control" id="email" name="_replyto" required
+              placeholder="example@email.com">
+          </div>
+          <div class="mb-3 text-start">
+            <label for="message" class="form-label">お問い合わせ内容</label>
+            <textarea class="form-control" id="message" name="message" rows="5" required
+              placeholder="ここにメッセージをご記入ください"></textarea>
+          </div>
+          <div class="text-center mt-4">
+            <button type="submit" class="btn btn-primary rounded-pill px-5 py-2">送信する</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Back to Top Button -->
+  <button id="backToTop" class="btn" aria-label="トップに戻る">
+    <i class="bi bi-arrow-up"></i>
+  </button>
+
+  <!-- Lightbox Modal -->
+  <div class="modal fade" id="lightboxModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-xl">
+      <div class="modal-content bg-transparent border-0">
+        <div class="modal-body p-0 text-center position-relative">
+          <button type="button" class="btn-close btn-close-white position-absolute top-0 end-0 m-3 z-3"
+            data-bs-dismiss="modal" aria-label="Close"></button>
+          <img id="lightboxImage" src="" class="img-fluid rounded" alt="Full size image">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- footer Section -->
+  <footer class="footer">
+    <div class="container">
+      <div class="mb-3">
+        <a href="https://x.com/hirography_321" class="text-white mx-2 fs-5" target="_blank"><i
+            class="bi bi-twitter-x"></i></a>
+        <a href="https://www.instagram.com/hirography_321" class="text-white mx-2 fs-5" target="_blank"><i
+            class="bi bi-instagram"></i></a>
+        <a href="https://github.com/hirocode321" class="text-white mx-2 fs-5" target="_blank"><i
+            class="bi bi-github"></i></a>
+      </div>
+      <small>&copy; 2025 HiroCode321. All Rights Reserved.</small>
+    </div>
+  </footer>
+
+  <!-- script Section -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script>
+    AOS.init({
+      once: true,
+      offset: 100,
+      duration: 800,
+      easing: 'ease-out-cubic',
+    });
+
+    // Dark Mode Logic
+    function toggleDarkMode() {
+      document.body.classList.toggle('dark-mode');
+      const isDark = document.body.classList.contains('dark-mode');
+      localStorage.setItem('darkMode', isDark);
+    }
+
+    // Load Dark Mode Preference
+    document.addEventListener('DOMContentLoaded', () => {
+      if (localStorage.getItem('darkMode') === 'true') {
+        document.body.classList.add('dark-mode');
+      }
+    });
+
+    // Back to Top Logic
+    const backToTopBtn = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 300) {
+        backToTopBtn.style.display = 'block';
+        // Add a small delay for opacity transition if needed, but display:block needs to be set first
+        setTimeout(() => backToTopBtn.style.opacity = '1', 10);
+      } else {
+        backToTopBtn.style.opacity = '0';
+        setTimeout(() => backToTopBtn.style.display = 'none', 300);
+      }
+    });
+
+    backToTopBtn.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+
+    // Lightbox Logic
+    const lightboxModal = new bootstrap.Modal(document.getElementById('lightboxModal'));
+    const lightboxImage = document.getElementById('lightboxImage');
+
+    function openLightbox(element) {
+      const img = element.querySelector('img');
+      lightboxImage.src = img.src;
+      lightboxImage.alt = img.alt;
+      lightboxModal.show();
+    }
+
+    // Starfield Canvas Logic
+    const canvas = document.getElementById('starfield');
+    const ctx = canvas.getContext('2d');
+    let stars = [];
+    const numStars = 150;
+
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight; // Hero section is height: 100vh calculation might be needed if strictly hero, but window size is fine for background
+    }
+
+    // Ensure canvas fits the hero section specifically if we want
+    // But hero is 100vh roughly, so window size is okay.
+    // Better: match canvas to hero element size
+    const heroSection = document.querySelector('.hero');
+    function resizeToHero() {
+      canvas.width = heroSection.offsetWidth;
+      canvas.height = heroSection.offsetHeight;
+    }
+
+    window.addEventListener('resize', resizeToHero);
+    resizeToHero();
+
+    class Star {
+      constructor() {
+        this.reset();
+      }
+      reset() {
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
+        this.size = Math.random() * 2;
+        this.speed = Math.random() * 0.5 + 0.1;
+        this.opacity = Math.random();
+        this.fade = Math.random() * 0.02 + 0.005;
+      }
+      update() {
+        this.y -= this.speed; // Move up
+        if (this.y < 0) {
+          this.y = canvas.height;
+          this.x = Math.random() * canvas.width;
         }
 
-        // Load Dark Mode Preference
-        document.addEventListener('DOMContentLoaded', () => {
-          if (localStorage.getItem('darkMode') === 'true') {
-            document.body.classList.add('dark-mode');
-          }
-        });
-      </script>
+        // Twinkle
+        this.opacity += this.fade;
+        if (this.opacity > 1 || this.opacity < 0) {
+          this.fade = -this.fade;
+        }
+      }
+      draw() {
+        ctx.fillStyle = `rgba(255, 255, 255, ${Math.abs(this.opacity)})`;
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fill();
+      }
+    }
+
+    function initStars() {
+      stars = [];
+      for (let i = 0; i < numStars; i++) {
+        stars.push(new Star());
+      }
+    }
+
+    function animateStars() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      stars.forEach(star => {
+        star.update();
+        star.draw();
+      });
+      requestAnimationFrame(animateStars);
+    }
+
+    initStars();
+    animateStars();
+  </script>
 </body>
 
 </html>

@@ -1,29 +1,195 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
   <meta charset="UTF-8" />
+  <title>お問い合わせありがとうございます | HiroCode321</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>お問い合わせ<br>ありがとうございます</title>
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Outfit:wght@400;700&display=swap"
+    rel="stylesheet">
+
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css" />
+
   <style>
     body {
-      background-color: #f4f6f8;
+      font-family: 'Outfit', 'Noto Sans JP', sans-serif;
+      overflow-x: hidden;
       min-height: 100vh;
+      display: flex;
+      flex-direction: column;
     }
-    .thank-you-message {
+
+    /* Reuse hero style for full page background */
+    .thanks-hero {
+      position: relative;
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: radial-gradient(circle at center, #203a43 0%, #0f2027 100%);
+      color: #fff;
+      overflow: hidden;
+    }
+
+    #starfield {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+    }
+
+    .content-box {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(10px);
+      padding: 3rem;
+      border-radius: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
       max-width: 600px;
-      margin: auto;
-      padding: 2rem 1rem;
+      width: 90%;
+      position: relative;
+      z-index: 2;
+    }
+
+    h1 {
+      background: linear-gradient(135deg, #fff 30%, #a5b4fc 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+    }
+
+    .lead {
+      color: rgba(255, 255, 255, 0.9);
+      margin-bottom: 2rem;
+    }
+
+    .btn-home {
+      background: linear-gradient(45deg, #00d2ff, #3a7bd5);
+      border: none;
+      color: #fff;
+      padding: 0.8rem 2rem;
+      border-radius: 50px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    .btn-home:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(58, 123, 213, 0.4);
+      color: #fff;
     }
   </style>
 </head>
-<body class="vh-100 d-flex flex-column justify-content-center">
-  <div class="container text-center thank-you-message bg-white rounded shadow-sm">
-    <h1 class="mb-4">お問い合わせありがとうございます</h1>
-    <p class="lead">ご入力いただいた内容は無事に送信されました。</p>
-    <p>できるだけ早くご返信いたしますので、しばらくお待ちください。</p>
-    <a href="index.html" class="btn btn-primary mt-4 px-4">トップページに戻る</a>
-  </div>
+
+<body>
+
+  <!-- Navbar (Simplified) -->
+  <nav class="navbar navbar-dark fixed-top" style="background-color: rgba(15, 32, 39, 0.9);">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="index.html">HiroCode321</a>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <section class="thanks-hero">
+    <canvas id="starfield"></canvas>
+
+    <div class="container text-center">
+      <div class="content-box mx-auto" data-aos="zoom-in">
+        <div class="mb-4">
+          <i class="bi bi-envelope-check-fill text-white display-4"></i>
+        </div>
+        <h1>Thank You!</h1>
+        <p class="lead">
+          お問い合わせありがとうございます。<br>
+          送信が完了いたしました。
+        </p>
+        <p class="mb-4 text-white-50">
+          内容を確認次第、折り返しご連絡させていただきます。<br>
+          しばらくお待ちくださいますようお願い申し上げます。
+        </p>
+        <a href="index.html" class="btn btn-home">
+          <i class="bi bi-house-fill me-2"></i>トップページへ戻る
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- script Section -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script>
+    AOS.init({
+      once: true,
+      duration: 800,
+    });
+
+    // Starfield Canvas Logic (Simplified for background)
+    const canvas = document.getElementById('starfield');
+    const ctx = canvas.getContext('2d');
+    let stars = [];
+    const numStars = 100;
+
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+
+    class Star {
+      constructor() { this.reset(); }
+      reset() {
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
+        this.size = Math.random() * 2;
+        this.speed = Math.random() * 0.3 + 0.1;
+        this.opacity = Math.random();
+        this.fade = Math.random() * 0.02 + 0.005;
+      }
+      update() {
+        this.y -= this.speed;
+        if (this.y < 0) {
+          this.y = canvas.height;
+          this.x = Math.random() * canvas.width;
+        }
+        this.opacity += this.fade;
+        if (this.opacity > 1 || this.opacity < 0) this.fade = -this.fade;
+      }
+      draw() {
+        ctx.fillStyle = `rgba(255, 255, 255, ${Math.abs(this.opacity)})`;
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fill();
+      }
+    }
+
+    function initStars() {
+      stars = [];
+      for (let i = 0; i < numStars; i++) stars.push(new Star());
+    }
+
+    function animateStars() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      stars.forEach(star => { star.update(); star.draw(); });
+      requestAnimationFrame(animateStars);
+    }
+
+    initStars();
+    animateStars();
+  </script>
 </body>
+
 </html>

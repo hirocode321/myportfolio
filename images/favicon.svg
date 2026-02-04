@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- Camera Body -->
+  <rect x="8" y="16" width="48" height="36" rx="6" fill="#1e2a38" />
+  <rect x="22" y="10" width="20" height="6" rx="2" fill="#1e2a38" />
+  
+  <!-- Lens Outer -->
+  <circle cx="32" cy="34" r="14" fill="#3a7bd5" />
+  <!-- Lens Inner (Glass) -->
+  <circle cx="32" cy="34" r="10" fill="#0f2027" />
+  <!-- Lens Reflection -->
+  <circle cx="28" cy="30" r="3" fill="rgba(255,255,255,0.8)" />
+  
+  <!-- Star Accent -->
+  <path d="M54 12 L56 16 L60 16 L57 19 L58 23 L54 20 L50 23 L51 19 L48 16 L52 16 Z" fill="#00d2ff" stroke="#fff" stroke-width="1" />
+</svg>
